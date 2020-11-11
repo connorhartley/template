@@ -1,0 +1,35 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "description": "A website template.",
+  "private": true,
+  "author": "Connor Hartley <github.com/connorhartley>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:clean && npm run build:assets && npm run build:css && npm run build:js",
+    "build:clean": "rm -rf dist && mkdir dist",
+    "build:assets": "cp -r public/* dist",
+    "build:css": "sass-lint -c .sass-lint.yml \"src/**/*.scss\" -v -q && sass src/app.scss > dist/app.css && postcss dist/app.css --output dist/app.css -u autoprefixer && cleancss dist/app.css --output dist/app.min.css",
+    "build:js": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "hyperapp": "^2.0.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-react-jsx": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "autoprefixer": "^10.0.1",
+    "clean-css-cli": "^4.3.0",
+    "postcss": "^8.1.4",
+    "postcss-cli": "^8.2.0",
+    "rollup": "^2.33.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.28.0",
+    "sass-lint": "^1.13.1"
+  }
+}

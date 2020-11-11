@@ -1,0 +1,10 @@
+{
+  "name": "worker",
+  "version": "0.1.0",
+  "description": "A template for deploying to Cloudflare Workers",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "0.0.12"
+  }
+}
