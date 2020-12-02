@@ -13,7 +13,7 @@
     "build:js": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "hyperapp": "^2.0.8"
+    "superfine": "^8.0.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

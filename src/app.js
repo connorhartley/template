@@ -1,13 +1,27 @@
-import { app } from 'hyperapp';
+import { app, action } from './router';
 import state from './state';
-import view from './view';
+import routes from './routes';
 
-// async function main() {
-  const main = app({
-    node: document.getElementById("main"),
-    init: state,
-    view: view
+const listen = window.addEventListener;
+
+const main = app(document.getElementById("main"), state, routes);
+
+const handleRoute = () => {
+  main.act(action.routerInit);
+  main.get(state => {
+    const route = routes[state.router.to];
+    const routeTarget = route && route.view ? route : routes["_default"];
+
+    routeTarget.init();
   });
-// }
+};
 
-// main();
+listen("DOMContentLoaded", () => {
+  handleRoute();
+
+  listen("popstate", handleRoute);
+  listen("pushstate", handleRoute);
+});
+
+
+

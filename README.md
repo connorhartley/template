@@ -1,3 +1,3 @@
 # Template
 
-Template for creating HyperApp websites with Cloudflare Workers.
+Template for creating Superfine websites with Cloudflare Workers.
